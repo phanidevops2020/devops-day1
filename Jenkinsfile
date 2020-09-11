@@ -12,7 +12,9 @@ pipeline{
         stage ('test')
         {
             steps{
-                echo 'project testing completed'
+		echo '---Project testing started---'
+		sh 'python FirstProgram.py'
+                echo '---project testing finished---'
             }
         }
     }
