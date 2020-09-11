@@ -5,7 +5,7 @@ pipeline{
         {
             steps{
 		echo '---Project build started---'
-		sh 'python' FirstProgram.py
+		sh 'python FirstProgram.py'
                 echo '---project build finished---'
             }
         }
