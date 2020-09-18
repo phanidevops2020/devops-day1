@@ -8,7 +8,7 @@ pipeline{
 		echo '---working on FirstProgram---'
 		sh 'python FirstProgram.py'
 		echo '---working on docker---'
-		sh 'docker build -t prime1.0 .'
+		sh 'sudo docker build -t prime1.0 .'
                 echo '---project build finished---'
             }
         }
