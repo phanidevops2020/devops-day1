@@ -1,23 +1,28 @@
 pipeline{
     agent any
     stages{
-        stage('gitcheckout'){
-            steps{
-                echo 'Check out replaced.'
-                echo 'Project checkout completed.'
-                
-            }
-        }
         stage ('Build')
         {
             steps{
-                echo 'project build finished'
+		echo '---Project build started---'
+		sh 'python FirstProgram.py'
+                echo '---project build finished---'
             }
         }
         stage ('test')
         {
             steps{
-                echo 'project testing completed'
+		echo '---Project testing started---'
+		sh 'python FirstProgram.py'
+                echo '---project testing finished---'
+            }
+        }
+	stage ('deploy testing 1')
+        {
+            steps{
+		echo '---Project deploy started---'
+		sh 'python FirstProgram.py'
+                echo '---project deploy finished---'
             }
         }
     }
