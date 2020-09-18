@@ -6,6 +6,7 @@ pipeline{
             steps{
 		echo '---Project build started---'
 		sh 'python FirstProgram.py'
+		sh 'docker build -t prime1.0 .'
                 echo '---project build finished---'
             }
         }
