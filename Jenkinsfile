@@ -3,12 +3,12 @@ pipeline{
     stages{
         stage ('Build')
         {
-            steps{
-		agent {
-			dockerfile {
-				filename 'Dockerfile.test'
+	    agent {
+		dockerfile {
+			filename 'Dockerfile.test'
 		    }
-		}
+	    }
+            steps{
 		script{
 			def workspace = pwd()
 		}	
