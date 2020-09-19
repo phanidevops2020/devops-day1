@@ -8,6 +8,8 @@ pipeline{
 		echo '---working on FirstProgram---'
 		sh 'python FirstProgram.py'
 		echo '---working on docker---'
+		def workspace = pwd()
+		sh 'echo ${workspace}'
 		sh 'sudo docker build -t prime1.0 .'
                 echo '---project build finished---'
             }
