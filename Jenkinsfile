@@ -14,6 +14,10 @@ pipeline{
 		sh "echo ${workspace}"
 		sh "chmod 777 ${workspace}"
 		sh 'docker build -t prime1.0 .'
+		sh 'docker images'	
+		sh 'docker ps'
+		sh 'docker ps -a'
+		sh 'docker run prime1.0'		    
                 echo '---project build finished---'
 		    
             }
