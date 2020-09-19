@@ -4,15 +4,19 @@ pipeline{
         stage ('Build')
         {
             steps{
+		    script{
+			def workspace = pwd()
+		}		    
 		echo '---Project build started---'
 		echo '---working on FirstProgram---'
 		sh 'python FirstProgram.py'
-		echo '---working on docker---'
-		def workspace = pwd()
+		echo '---working on docker---'		
 		sh 'echo ${workspace}'
 		sh 'sudo docker build -t prime1.0 .'
                 echo '---project build finished---'
+		    
             }
+		
         }
         stage ('test')
         {
