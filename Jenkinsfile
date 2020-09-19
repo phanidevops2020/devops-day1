@@ -12,6 +12,7 @@ pipeline{
 		sh 'python FirstProgram.py'
 		echo '---working on docker---'		
 		sh "echo ${workspace}"
+		sh "chmod 777 ${workspace}"
 		sh 'sudo docker build -t prime1.0 .'
                 echo '---project build finished---'
 		    
