@@ -4,14 +4,14 @@ pipeline{
         stage ('Build')
         {
             steps{
-		script{
-			def workspace = pwd()
-		}	
 		agent {
 			dockerfile {
 				filename 'Dockerfile.test'
 		    }
 		}
+		script{
+			def workspace = pwd()
+		}	
 		echo '---Project build started---'
 		echo '---working on FirstProgram---'
 		sh 'python FirstProgram.py'
