@@ -7,8 +7,10 @@ pipeline{
 		script{
 			def workspace = pwd()
 		}	
-		dockerfile {
-			filename 'Dockerfile.test'
+		agent {
+			dockerfile {
+				filename 'Dockerfile.test'
+		    }
 		}
 		echo '---Project build started---'
 		echo '---working on FirstProgram---'
