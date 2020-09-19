@@ -1,16 +1,15 @@
 pipeline{
-	agent {
-	dockerfile {
-		filename 'Dockerfile.test'
-	}
-	}
+	agent any
     stages{
         stage ('Build')
         {
             steps{
-		    script{
+		script{
 			def workspace = pwd()
-		}		    
+		}	
+		dockerfile {
+			filename 'Dockerfile.test'
+		}
 		echo '---Project build started---'
 		echo '---working on FirstProgram---'
 		sh 'python FirstProgram.py'
