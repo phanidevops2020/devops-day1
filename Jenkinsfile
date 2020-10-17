@@ -23,6 +23,16 @@ pipeline{
             }
 		
         }
+	stage ('Sonar')
+        {
+	    steps{
+		withSonarQubeEnv('SonarQubeServer') 
+		    {	
+			    sh “/var/lib/jenkins/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner -Dsonar.host.url=http://phaniavula.eastus.cloudapp.azure.com:9000/ -Dsonar.projectName=devops-day1 -Dsonar.projectVersion=1.0 -Dsonar.projectKey=devops-day1:FirstProgram.py -Dsonar.sources=. -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/Job2-multibranch_dev"
+		}
+            }
+		
+        }
         stage ('test')
         {
             steps{
