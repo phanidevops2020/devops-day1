@@ -25,14 +25,20 @@ pipeline{
         }
 	stage ('Sonar')
         {
+		environment {
+            		def scannerHome = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation';
+        	}
 	    steps{
 		withSonarQubeEnv('SonarQubeServer') 
 		    {	
-			    sh “/var/lib/jenkins/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner -Dsonar.host.url=http://phaniavula.eastus.cloudapp.azure.com:9000/ -Dsonar.projectName=devops-day1 -Dsonar.projectVersion=1.0 -Dsonar.projectKey=devops-day1:FirstProgram.py -Dsonar.sources=. -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/Job2-multibranch_dev"
+			sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=devops-day1 -Dsonar.exclusions=appdynamics/** -Dsonar.jacoco.reportPaths=build/jacoco/test.exec -Dsonar.junit.reportPaths=build/test-results/test -Dsonar.sources=FirstProgram.py"
+			    //sh “/var/lib/jenkins/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner -Dsonar.host.url=http://phaniavula.eastus.cloudapp.azure.com:9000/ -Dsonar.projectName=devops-day1 -Dsonar.projectVersion=1.0 -Dsonar.projectKey=devops-day1:FirstProgram.py -Dsonar.sources=. -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/Job2-multibranch_dev"
 		}
             }
 		
         }
+	    
+	    
         stage ('test')
         {
             steps{
